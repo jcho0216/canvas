@@ -33,7 +33,7 @@ window.addEventListener("resize", function() {
   init();
 })
 
-function Circle(x, y, veloX, veloY, radius, color) {
+function Circle(x, y, veloX, veloY, radius) {
   this.x = x;
   this.y = y;
   this.veloX = veloX;
@@ -86,15 +86,9 @@ function init() {
     let x = Math.random() * (innerWidth - radius * 2) + radius;
     let y = Math.random() * (innerHeight - radius * 2) + radius;
   
-    let letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-  
-    let veloX = (Math.random() - 0.5) * 4;
-    let veloY = (Math.random() - 0.5) * 4;
-    circleArray.push(new Circle(x, y, veloX, veloY, radius, color));
+    let veloX = (Math.random() - 0.5) * 5;
+    let veloY = (Math.random() - 0.5) * 5;
+    circleArray.push(new Circle(x, y, veloX, veloY, radius));
   }
 }
 init();
