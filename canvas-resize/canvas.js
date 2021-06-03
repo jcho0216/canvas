@@ -25,7 +25,7 @@ c.arc(500, 300, 50, 0, Math.PI * 2, false);
 c.strokeStyle = "blue";
 c.stroke();
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 100; i++) {
 let x = Math.random() * window.innerWidth;
 let y = Math.random() * window.innerHeight;
   c.beginPath();
@@ -33,3 +33,4 @@ let y = Math.random() * window.innerHeight;
   c.strokeStyle = "black";
   c.stroke();
 }
+
