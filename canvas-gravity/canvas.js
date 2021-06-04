@@ -7,35 +7,35 @@ canvas.height = window.innerHeight;
 
 const colorArray = ["#202140", "#75BFB8", "#F2EFDF", "#F2A74B", "#D94A3D"];
 
-function Circle(x, y, veloX, veloY, radius, color) {
+function Circle(x, y, veloX, veloY, radius) {
   this.x = x;
   this.y = y;
   this.veloX = veloX;
   this.veloY = veloY;
   this.radius = radius;
-  this.color = color;
+  this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
 
   this.draw = () => {
     c.beginPath();
+    c.fillStyle = `${this.color}`;
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    c.fillRect = `${this.color}`;
     c.fill();
   };
 
   this.update = () => {
-    if (this.y + this.radius + this.veloY > canvas.height ) {
-        // this.y = canvas.height - radius;
-      this.veloY = -this.veloY * 0.8;
+    if (this.y + this.radius + this.veloY > canvas.height) {
+      this.veloY = -this.veloY * 0.9;
     } else {
       this.veloY += 1;
     }
 
-    if(this.x + this.radius > canvas.width || this.x - this.radius < 0) {
-      this.dx = -this.dx;
+    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+      this.veloX = -this.veloX;
     }
 
     this.y += this.veloY;
     this.x += this.veloX;
+
     this.draw();
   };
 }
@@ -46,19 +46,15 @@ window.addEventListener("resize", init);
 let circleArray = [];
 
 function init() {
- 
   circleArray = [];
   for (let i = 0; i < 100; i++) {
-    let radius = Math.random() * 20;
-    let veloX = (Math.random() - 0.5) * 6;
-    let veloY = 10;
+    let radius = Math.random() * 30;
+    let veloX = (Math.random() - 0.5) * 10;
+    let veloY = 12;
     let x = Math.random() * (window.innerWidth - radius * 2) + radius;
-    let y = Math.random() * (window.innerHeight) - radius;
-    let color = "black";
-    circleArray.push(new Circle(x, y, veloX, veloY, radius, color));
+    let y = Math.random() * window.innerHeight - radius;
+    circleArray.push(new Circle(x, y, veloX, veloY, radius));
   }
-
-  console.log(circleArray);
 }
 init();
 
