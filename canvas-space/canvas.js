@@ -11,7 +11,7 @@ let mouse = {
   y: undefined,
 };
 
-let maxRadius = 65;
+let maxRadius = 60;
 
 window.addEventListener("mousemove", function (e) {
   mouse.x = e.x;
@@ -24,6 +24,8 @@ window.addEventListener("resize", function () {
 
   init();
 });
+
+window.addEventListener("click", init)
 
 function Circle(x, y, veloX, veloY, radius) {
   this.x = x;
@@ -72,7 +74,7 @@ let circleArray = [];
 function init() {
   circleArray = [];
 
-  for (let i = 0; i < 2000; i++) {
+  for (let i = 0; i < 1000; i++) {
     let radius = Math.random() * 5 + 1;
     let x = Math.random() * (innerWidth - radius * 2) + radius;
     let y = Math.random() * (innerHeight - radius * 2) + radius;
