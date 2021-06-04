@@ -1,37 +1,29 @@
 let canvas = document.querySelector("canvas");
+let c = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let c = canvas.getContext("2d");
-
-colorArray = [
-  "#202140",
-  "#75BFB8",
-  "#F2EFDF",
-  "#F2A74B",
-  "#D94A3D"
-];
+const colorArray = ["#202140", "#75BFB8", "#F2EFDF", "#F2A74B", "#D94A3D"];
 
 let mouse = {
   x: undefined,
   y: undefined,
 };
 
-let maxRadius = 60;
+let maxRadius = 65;
 
 window.addEventListener("mousemove", function (e) {
   mouse.x = e.x;
   mouse.y = e.y;
-  console.log(mouse);
 });
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   init();
-})
+});
 
 function Circle(x, y, veloX, veloY, radius) {
   this.x = x;
@@ -78,14 +70,13 @@ function Circle(x, y, veloX, veloY, radius) {
 
 let circleArray = [];
 function init() {
-
   circleArray = [];
 
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 2000; i++) {
     let radius = Math.random() * 5 + 1;
     let x = Math.random() * (innerWidth - radius * 2) + radius;
     let y = Math.random() * (innerHeight - radius * 2) + radius;
-  
+
     let veloX = (Math.random() - 0.5) * 5;
     let veloY = (Math.random() - 0.5) * 5;
     circleArray.push(new Circle(x, y, veloX, veloY, radius));
