@@ -24,7 +24,7 @@ function Circle(x, y, veloX, veloY, radius) {
 
   this.update = () => {
     if (this.y + this.radius + this.veloY > canvas.height) {
-      this.veloY = -this.veloY * 0.9;
+      this.veloY = -this.veloY * 0.8;
     } else {
       this.veloY += 1;
     }
