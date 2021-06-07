@@ -47,7 +47,7 @@ let circleArray = [];
 
 function init() {
   circleArray = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 200; i++) {
     let radius = Math.random() * 30;
     let veloX = (Math.random() - 0.5) * 10;
     let veloY = 12;
