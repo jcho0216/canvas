@@ -1,1 +1,1 @@
-COOL Animation Effects created by using HTML Canvas
+> Creating animation effects using HTML Canvas
