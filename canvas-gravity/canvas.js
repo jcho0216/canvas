@@ -46,6 +46,9 @@ window.addEventListener("resize", init);
 let circleArray = [];
 
 function init() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
   circleArray = [];
   for (let i = 0; i < 200; i++) {
     let radius = Math.random() * 30;
